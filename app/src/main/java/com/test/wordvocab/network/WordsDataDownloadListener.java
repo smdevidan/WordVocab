@@ -1,22 +1,23 @@
 package com.test.wordvocab.network;
 
+import java.util.List;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
-
-import java.util.List;
 
 import com.squareup.okhttp.Response;
 import com.test.wordvocab.WordsApplication;
 import com.test.wordvocab.db.IWordsDao;
 import com.test.wordvocab.db.model.WordDataModel;
+import com.test.wordvocab.ui.UINotifier;
 import com.test.wordvocabnetworkmanager.INetworkRequestListener;
 import com.test.wordvocabnetworkmanager.model.WordsModel;
 import com.test.wordvocabnetworkmanager.resource.AbstractResource;
 import com.test.wordvocabnetworkmanager.resource.WordJSONResource;
 
 /**
- * Created by dsunder on 12/20/2015.
+ * Network download listener. Created by dsunder on 12/20/2015.
  */
 public class WordsDataDownloadListener implements INetworkRequestListener
 {
@@ -61,6 +62,7 @@ public class WordsDataDownloadListener implements INetworkRequestListener
             }
         }
 
+        UINotifier.getInstance().onDataUpdated();
     }
 
     @Override

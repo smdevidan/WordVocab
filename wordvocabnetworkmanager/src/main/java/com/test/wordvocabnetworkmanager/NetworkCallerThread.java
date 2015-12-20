@@ -12,7 +12,8 @@ import com.squareup.okhttp.Response;
 import com.test.wordvocabnetworkmanager.resource.AbstractResource;
 
 /**
- * Created by dsunder on 12/20/2015.
+ * This thread will execute all network traffic. This thread reads from a blocking queue and will block the thread if
+ * nothing is queued. Created by dsunder on 12/20/2015.
  */
 public class NetworkCallerThread extends Thread
 {

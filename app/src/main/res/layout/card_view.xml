@@ -18,41 +18,37 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:padding="16dp">
+            android:padding="@dimen/padding_high">
 
-            <ImageView
-                android:id="@+id/cardImage"
+            <TextView
+                android:id="@+id/word"
+                android:st
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="16dp"
-                android:src="@android:drawable/alert_dark_frame" />
-
-            <TextView
-                android:id="@+id/word"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_toRightOf="@+id/cardImage"
-                android:text="Test"
+                android:padding="@dimen/padding_normal"
                 android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                android:textSize="@dimen/head_text_size" />
 
             <TextView
                 android:id="@+id/meaning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/word"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="6dp"
-                android:layout_toRightOf="@+id/cardImage"
-                android:text="Testing 123"
+                android:layout_alignParentLeft="true"
+                android:padding="@dimen/padding_normal"
+                android:layout_marginLeft="@dimen/margin_high"
                 android:textColor="@android:color/black"
-                android:textSize="14sp" />
+                android:textSize="@dimen/secondary_text_size" />
+
+            <ImageView
+                android:id="@+id/cardImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/meaning"
+                android:layout_marginLeft="@dimen/margin_medium" />
 
         </RelativeLayout>
 

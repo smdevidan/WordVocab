@@ -5,7 +5,7 @@ import com.test.wordvocab.db.model.WordDataModel;
 import java.util.List;
 
 /**
- * Created by dsunder on 12/20/2015.
+ * Interface for words db. Created by dsunder on 12/20/2015.
  */
 public interface IWordsDao
 {

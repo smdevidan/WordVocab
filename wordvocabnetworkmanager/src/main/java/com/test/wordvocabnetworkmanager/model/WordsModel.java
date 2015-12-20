@@ -1,7 +1,7 @@
 package com.test.wordvocabnetworkmanager.model;
 
 /**
- * Created by dsunder on 12/20/2015.
+ * Parse model for JSON response. Created by dsunder on 12/20/2015.
  */
 public class WordsModel
 {

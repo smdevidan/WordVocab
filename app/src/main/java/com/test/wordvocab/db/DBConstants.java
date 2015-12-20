@@ -1,6 +1,7 @@
 package com.test.wordvocab.db;
 
 /**
+ * Database constants.
  * Created by dsunder on 12/20/2015.
  */
 public interface DBConstants {

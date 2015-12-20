@@ -3,7 +3,7 @@ package com.test.wordvocabnetworkmanager;
 import com.test.wordvocabnetworkmanager.resource.AbstractResource;
 
 /**
- * Created by dsunder on 12/20/2015.
+ * Request model to queue network requests. Created by dsunder on 12/20/2015.
  */
 public class NetworkRequestModel
 {
