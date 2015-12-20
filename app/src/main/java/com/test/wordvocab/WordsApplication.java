@@ -1,15 +1,11 @@
 package com.test.wordvocab;
 
 import android.app.Application;
-import android.util.Log;
+import android.content.Intent;
 
-import com.test.wordvocab.db.IWordsDao;
-import com.test.wordvocab.network.WordsDataDownloadListener;
+import com.test.wordvocab.intenthandler.WordDataUpdateIntentHandler;
 import com.test.wordvocab.service.IDaoService;
 import com.test.wordvocab.service.impl.DaoServiceImpl;
-import com.test.wordvocabnetworkmanager.NetworkManager;
-import com.test.wordvocabnetworkmanager.NetworkRequestModel;
-import com.test.wordvocabnetworkmanager.resource.WordJSONResource;
 
 /**
  * Created by dsunder on 12/20/2015.
@@ -26,6 +22,9 @@ public class WordsApplication extends Application
     {
         super.onCreate();
         application = this;
+        Intent intent = new Intent(this, WordDataUpdateIntentHandler.class);
+        intent.setAction(WordDataUpdateIntentHandler.UPDATE_WORDS_DATA_ACTION);
+        startService(intent);
     }
 
     public static WordsApplication getWordApplicationContext()

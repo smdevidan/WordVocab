@@ -1,5 +1,7 @@
 package com.test.wordvocab.network;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import java.util.List;
@@ -29,10 +31,15 @@ public class WordsDataDownloadListener implements INetworkRequestListener
     @Override
     public void onRequestCompleted(AbstractResource resource)
     {
-
         if (resource == null) {
             return;
         }
+
+        SharedPreferences sharedPreferences = WordsApplication.getWordApplicationContext()
+                .getSharedPreferences("keyValue", Context.MODE_PRIVATE);
+
+        sharedPreferences.edit().putLong("lastUpdateTime", System.currentTimeMillis()).apply();
+
         IWordsDao wordsDao = WordsApplication.getWordApplicationContext().getDaoService().getWordDaoService();
         List<Integer> existingServerIdsList = wordsDao.getAllServerIds();
         List<WordsModel> dataValues = ((WordJSONResource) resource).getWords();

@@ -1,14 +1,14 @@
 package com.test.wordvocab;
 
-import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import java.util.List;
 
-import com.test.wordvocab.network.WordsDataDownloadListener;
-import com.test.wordvocabnetworkmanager.NetworkManager;
-import com.test.wordvocabnetworkmanager.NetworkRequestModel;
-import com.test.wordvocabnetworkmanager.resource.WordJSONResource;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
+import com.test.wordvocab.db.model.WordDataModel;
+import com.test.wordvocab.ui.RecyclerViewAdapter;
 
 public class WordsActivity extends AppCompatActivity
 {
@@ -20,16 +20,13 @@ public class WordsActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_words);
-        WordsApplication.getWordApplicationContext().getDaoService();
-        NetworkManager networkManager = NetworkManager.getInstance();
-        networkManager.initializeNetworkManager();
-        NetworkRequestModel networkRequestModel = new NetworkRequestModel(new WordJSONResource(),
-                new WordsDataDownloadListener());
-        try {
-            networkManager.submitRequest(networkRequestModel);
-        }
-        catch (InterruptedException e) {
-            Log.e(TAG, e.getMessage());
-        }
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(layoutManager);
+        List<WordDataModel> dataList = WordsApplication.getWordApplicationContext().getDaoService().getWordDaoService()
+                .getAllWordsList();
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(dataList);
+        recyclerView.setAdapter(adapter);
     }
 }
