@@ -43,8 +43,8 @@
 
             <ImageView
                 android:id="@+id/cardImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/meaning"
                 android:layout_marginLeft="@dimen/margin_medium" />
